@@ -601,3 +601,48 @@ Order by Engine_size ASC;
 | 4.9 | 75260.39 | 4991 |
 | 5.0 | 73261.76 | 5040 |
 ---
+
+**#28. Ranking of models based on their Sales Volume (highest to lowest)**
+
+```SQL
+Select 
+    Model, 
+    RANK() OVER(Order by SALES_VOLUME DESC) as Sales_volume_rank
+from bmw
+```
+
+| MODEL | SALES_VOLUME_RANK |
+| --- | --- |
+| 7 Series | 1 |
+| 5 Series | 1 |
+| 3 Series | 1 |
+| M3 | 1 |
+| X3 | 1 |
+| M3 | 6 |
+| i8 | 6 |
+| M5 | 6 |
+| X1 | 6 |
+| X5 | 6 |
+
+---
+
+**#29. Ranking of Regions based on Total Revenue**
+
+```SQL
+Select Region, SUM(price_usd * sales_volume) as Total_revenue,
+    RANK() OVER(Order by SUM(price_usd * sales_volume) DESC) as Rnk_by_revenue
+from bmw
+group by region;
+```
+
+
+| REGION | TOTAL_REVENUE | RNK_BY_REVENUE |
+| --- | --- | --- |
+| Asia | 3250635961348 | 1 |
+| Europe | 3188079573212 | 2 |
+| North America | 3182938635076 | 3 |
+| Middle East | 3167783530851 | 4 |
+| South America | 3113805414620 | 5 |
+| Africa | 3108999419352 | 6 |
+
+---
