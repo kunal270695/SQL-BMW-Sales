@@ -1,6 +1,6 @@
 
 
-#1. Explore table
+**#1. Explore table**
 
 ```SQL
 
@@ -484,7 +484,7 @@ Order by year ASC;
 | 2024 | 17527854 |
 ---
 
-**23. revenue by region **
+**23. revenue by region**
 
 ```SQL
 Select Region, SUM(price_usd * Sales_volume) as Total_revenue
@@ -503,7 +503,8 @@ Order by Total_revenue DESC;
 | Africa | 3108999419352 |
 ---
 
-**24. Price difference between fuel types **
+**24. Price difference between fuel types**
+
 ```SQL
 Select MAX(Price_usd) - MIN(Price_usd) as Price_difference
 from bmw 
@@ -515,7 +516,7 @@ where fuel_type in ('Electric', 'Petrol')
 | 89998 |
 ---
 
-**25. Best selling model per year **
+**25. Best selling model per year**
 
 ```SQL
 
